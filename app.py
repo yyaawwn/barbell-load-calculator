@@ -314,73 +314,65 @@ def barbell_calculator_3d():
             @media (max-width: 768px) {
                 .ui-container {
                     flex-direction: column;
-                    height: 100vh; /* Full viewport height */
-                    overflow: hidden; /* Prevent body scroll */
+                    height: 100vh;
+                    overflow: visible; /* changed from hidden to allow scroll interactions if needed */
                 }
                 
                 .left-panel {
-                    flex: 1; /* Takes available space */
+                    flex: 1; 
                     padding: 10px;
-                    justify-content: flex-start; /* Push content to top */
-                    overflow-y: auto; /* Allow scrolling if panel content is tall */
+                    justify-content: space-between; /* Space out scoreboard and controls */
                     width: 100%;
+                    height: 100vh;
+                    overflow: hidden; /* No scroll on panel itself, overlay fixed */
                 }
                 
+                /* Hide Table on Mobile by default to save space, or push to very bottom */
                 .right-panel {
-                    width: 100%;
-                    height: auto;
-                    max-height: 30vh; /* Limit height of table on mobile */
-                    border-left: none;
-                    border-top: 1px solid #333;
-                    padding: 15px;
+                    display: none; /* Temporarily hide breakdown on mobile for clarity */
                 }
                 
                 .scoreboard {
-                    padding: 10px 15px;
-                    margin-bottom: 10px;
+                    padding: 8px 15px;
+                    margin-bottom: 0;
+                    margin-top: 10px;
+                    background: rgba(20, 20, 20, 0.7); /* More transparent */
                 }
                 
-                .scoreboard h1 {
-                    font-size: 1.2rem;
-                }
-                
-                .total-value {
-                    font-size: 2rem;
-                }
+                .scoreboard h1 { font-size: 1rem; margin-bottom: 2px; }
+                .total-value { font-size: 1.8rem; }
+                .total-unit { font-size: 0.8rem; }
                 
                 .controls-panel {
-                    margin-top: auto; /* Push to bottom of left panel space if possible */
-                    padding: 15px;
-                    gap: 15px;
-                    max-height: none; /* Let it grow */
-                    background: rgba(20, 20, 20, 0.95); /* More opaque on mobile */
+                    margin-top: auto;
+                    padding: 10px;
+                    gap: 10px;
+                    max-height: 45vh; /* Cap height to < 50% */
+                    background: rgba(10, 10, 10, 0.85); /* Slightly transparent dark */
+                    overflow-y: auto;
+                    border-radius: 15px 15px 0 0;
+                    width: 100%;
                 }
                 
-                .plate-inventory {
-                    gap: 20px;
+                /* Compact Buttons */
+                .bar-selector .btn {
+                    padding: 8px 12px;
+                    font-size: 0.8rem;
                 }
                 
-                .plate-grid {
-                    gap: 8px;
-                }
+                .inv-header { font-size: 0.8rem; letter-spacing: 1px; }
                 
+                .plate-inventory { gap: 15px; }
+                
+                .plate-grid { gap: 6px; }
+                
+                /* Tiny Plates for Mobile */
                 .inv-plate {
-                    width: 45px;
-                    height: 45px;
-                    font-size: 0.7rem;
+                    width: 38px;
+                    height: 38px;
+                    font-size: 0.6rem;
+                    border-width: 1px;
                 }
-                
-                /* On mobile, maybe push the 3D view to be more centered or top-biased? */
-                /* The canvas is fixed bg, so it works. But controls might cover it. */
-                /* Let's make the controls a bottom drawer style */
-                
-                .left-panel {
-                    /* Transparent spacer in middle to see bar? */
-                    display: flex;
-                    flex-direction: column;
-                }
-                
-                /* Adjust visuals: Scoreboard top fixed? No, standard flow is ok. */
             }
 
             
