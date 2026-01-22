@@ -310,6 +310,80 @@ def barbell_calculator_3d():
                 transition: opacity 0.5s;
             }
             
+            /* --- MOBILE RESPONSIVENESS --- */
+            @media (max-width: 768px) {
+                .ui-container {
+                    flex-direction: column;
+                    height: 100vh; /* Full viewport height */
+                    overflow: hidden; /* Prevent body scroll */
+                }
+                
+                .left-panel {
+                    flex: 1; /* Takes available space */
+                    padding: 10px;
+                    justify-content: flex-start; /* Push content to top */
+                    overflow-y: auto; /* Allow scrolling if panel content is tall */
+                    width: 100%;
+                }
+                
+                .right-panel {
+                    width: 100%;
+                    height: auto;
+                    max-height: 30vh; /* Limit height of table on mobile */
+                    border-left: none;
+                    border-top: 1px solid #333;
+                    padding: 15px;
+                }
+                
+                .scoreboard {
+                    padding: 10px 15px;
+                    margin-bottom: 10px;
+                }
+                
+                .scoreboard h1 {
+                    font-size: 1.2rem;
+                }
+                
+                .total-value {
+                    font-size: 2rem;
+                }
+                
+                .controls-panel {
+                    margin-top: auto; /* Push to bottom of left panel space if possible */
+                    padding: 15px;
+                    gap: 15px;
+                    max-height: none; /* Let it grow */
+                    background: rgba(20, 20, 20, 0.95); /* More opaque on mobile */
+                }
+                
+                .plate-inventory {
+                    gap: 20px;
+                }
+                
+                .plate-grid {
+                    gap: 8px;
+                }
+                
+                .inv-plate {
+                    width: 45px;
+                    height: 45px;
+                    font-size: 0.7rem;
+                }
+                
+                /* On mobile, maybe push the 3D view to be more centered or top-biased? */
+                /* The canvas is fixed bg, so it works. But controls might cover it. */
+                /* Let's make the controls a bottom drawer style */
+                
+                .left-panel {
+                    /* Transparent spacer in middle to see bar? */
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                /* Adjust visuals: Scoreboard top fixed? No, standard flow is ok. */
+            }
+
+            
         </style>
     </head>
     <body>
